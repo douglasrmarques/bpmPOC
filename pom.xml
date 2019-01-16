@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.tarion.bpm</groupId>
 	<artifactId>TarionServiceBPM</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
 		<camunda.version>7.9.0</camunda.version>
