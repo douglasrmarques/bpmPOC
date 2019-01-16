@@ -1,0 +1,8 @@
+camunda.bpm:
+  admin-user:
+    id: tarion
+    password: tarion123
+    firstName: Tarion
+  filter:
+    create: All tasks
+server.port: 8080

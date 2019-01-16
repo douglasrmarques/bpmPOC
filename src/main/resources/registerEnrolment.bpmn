@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0936lk8" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="2.2.3">
+  <bpmn:process id="registerEnrolment" name="Register Enrolment" isExecutable="true">
+    <bpmn:startEvent id="registerEnrolment_InitEvent" name="Register Enrolment">
+      <bpmn:outgoing>SequenceFlow_1lnmryz</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1lnmryz" sourceRef="registerEnrolment_InitEvent" targetRef="submitEnrolmentList" />
+    <bpmn:serviceTask id="submitEnrolmentList" name="Submit Enrolment List" camunda:delegateExpression="${submitEnrolmentService}">
+      <bpmn:incoming>SequenceFlow_1lnmryz</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_01eiuiv</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="enrolmentRegistered" name="Enrolment Registered">
+      <bpmn:incoming>SequenceFlow_01eiuiv</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_01eiuiv" sourceRef="submitEnrolmentList" targetRef="enrolmentRegistered" />
+    <bpmn:textAnnotation id="TextAnnotation_0ilefv2">
+      <bpmn:text>REST</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0zj6l1v" sourceRef="registerEnrolment_InitEvent" targetRef="TextAnnotation_0ilefv2" />
+    <bpmn:textAnnotation id="TextAnnotation_0nwz9mb">
+      <bpmn:text>SERVICE</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1d5pxj8" sourceRef="submitEnrolmentList" targetRef="TextAnnotation_0nwz9mb" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="registerEnrolment">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="registerEnrolment_InitEvent">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="166" y="145" width="52" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1lnmryz_di" bpmnElement="SequenceFlow_1lnmryz">
+        <di:waypoint x="209" y="120" />
+        <di:waypoint x="259" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_0i8hi40_di" bpmnElement="submitEnrolmentList">
+        <dc:Bounds x="259" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1fw540q_di" bpmnElement="enrolmentRegistered">
+        <dc:Bounds x="409" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="400" y="145" width="54" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_01eiuiv_di" bpmnElement="SequenceFlow_01eiuiv">
+        <di:waypoint x="359" y="120" />
+        <di:waypoint x="409" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0ilefv2_di" bpmnElement="TextAnnotation_0ilefv2">
+        <dc:Bounds x="209" y="22" width="100" height="30" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0zj6l1v_di" bpmnElement="Association_0zj6l1v">
+        <di:waypoint x="202" y="106" />
+        <di:waypoint x="247" y="52" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0nwz9mb_di" bpmnElement="TextAnnotation_0nwz9mb">
+        <dc:Bounds x="330" y="22" width="100" height="30" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1d5pxj8_di" bpmnElement="Association_1d5pxj8">
+        <di:waypoint x="343" y="80" />
+        <di:waypoint x="367" y="52" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
